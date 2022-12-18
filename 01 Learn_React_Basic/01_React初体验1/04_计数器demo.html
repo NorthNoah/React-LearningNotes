@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello React</title>
+</head>
+<body>
+    <div id="app">
+    </div>
+
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-dom.js"></script>
+    <script src="../lib/babel.js"></script>
+    
+
+    <script type="text/babel">
+        
+        class App extends React.Component {
+            constructor() {
+                super()
+                this.state = {
+                    // 参与数据流state
+                    counter: 0
+                }
+                //在构造函数中提前对方法进行绑定
+                this.increment = this.increment.bind(this)
+                this.decrement = this.decrement.bind(this)
+            }
+            render() {
+                // 注意编写类的时候，调用方法要加this
+                const { counter } = this.state
+                return (
+                    // 虚拟dom在调用时this绑定的是undefined(严格模式)
+                    <div>
+                        <h2>当前计数: {counter}</h2>
+                        <button onClick={this.increment}>+</button>
+                        <button onClick={this.decrement}>-</button>
+                    </div>
+                )
+            }
+            increment() {
+                // 要使用setState方法
+                this.setState({
+                    counter: this.state.counter + 1
+                })
+            }
+            decrement() {
+                this.setState({
+                    counter: this.state.counter - 1
+                })
+            }
+        }
+        const root = ReactDOM.createRoot(document.querySelector("#app"))
+        root.render(<App/>)
+    </script>
+</body>
+</html>

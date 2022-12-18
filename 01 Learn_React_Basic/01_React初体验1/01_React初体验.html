@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello React</title>
+</head>
+<body>
+    <div id="app">
+    </div>
+    <!-- <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script> -->
+    <!-- <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script> -->
+    <!-- <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
+
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-dom.js"></script>
+    <script src="../lib/babel.js"></script>
+
+
+    <script type="text/babel">
+        // 错误写法：
+        // const message = "Hello World"
+
+        // const root = ReactDOM.createRoot(document.querySelector("#app"))
+        // root.render(
+        //     <h2>{message}</h2>,
+        //     <button class="change">change</button>
+
+        // )
+
+        // const messageChanged = "Hello React"
+        // const btnEl = ReactDOM.createRoot(document.querySelector("change"))
+        // btnEl.onClick = () => root.render(<h2>{messageChanged}</h2>)
+
+
+        // 原则:不要对DOM进行操作,要去修改message变量;把函数绑定给按钮
+        let message = "Hello World"
+        const changeMessage = () => {
+            // 更改信息
+            message = "Hello React"
+            // 重新渲染
+            render()
+        }
+        const root = ReactDOM.createRoot(document.querySelector("#app"))
+        const render = () => {
+            root.render((
+                <div>
+                    <h2>{message}</h2>
+                    <button onClick={changeMessage}>change</button>
+                </div>
+            ))
+        }
+        render()
+        
+        // change函数抽取，并且通过onclick={}绑定到button上
+        // render函数抽取
+
+    </script>
+</body>
+</html>

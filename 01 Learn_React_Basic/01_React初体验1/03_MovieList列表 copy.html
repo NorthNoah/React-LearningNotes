@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello React</title>
+</head>
+<body>
+    <div id="app">
+    </div>
+
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-dom.js"></script>
+    <script src="../lib/babel.js"></script>
+    
+
+    <script type="text/babel">
+        
+        class App extends React.Component {
+            constructor() {
+                super()
+                this.state = {
+                    // 参与数据流state
+                    message: "Hello App",
+                    movies: ["无姓之人", "悬崖上的金鱼姬", "啦啦啦"]
+                }
+                //在构造函数中提前对方法进行绑定
+            }
+            render() {
+                const liELs = []
+                for(let item of this.state.movies) {
+                    const liEl = <li>{item}</li>
+                    liELs.push(liEl)
+                }
+                return (
+                    // 虚拟dom在调用时this绑定的是undefined(严格模式)
+                    <div>
+                        <h2>{this.state.message}</h2>
+                        <ul>
+                            {
+                                // 方法一：创建数组liEls，将源数据填入数组，自动遍历数组
+                                liELs
+
+                                // 方法二：map函数
+                                // this.state.movies.map(item => {
+                                //     return <li key={item}>{item}</li>
+                                // })
+                            }    
+                        </ul>
+                    </div>
+                )
+            }
+            changeText() {
+                // setState方法对数据进行修改
+                this.setState({
+                    message: "Hello React"
+                })
+                
+            }
+        }
+
+        const root = ReactDOM.createRoot(document.querySelector("#app"))
+        root.render(<App/>)
+    </script>
+</body>
+</html>
