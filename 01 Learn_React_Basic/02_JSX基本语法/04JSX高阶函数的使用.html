@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello React</title>
+    <style>
+        .active {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+    </div>
+
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-dom.js"></script>
+    <script src="../lib/babel.js"></script>
+
+
+    <script type="text/babel">
+        class App extends React.Component {
+            constructor() {
+                super()
+                this.state = {
+                    // 参与数据流state
+                    students: [
+                        {id: 111, name: "why", score: 99},
+                        {id: 112, name: "kobe", score: 98},
+                        {id: 113, name: "james", score: 199},
+                        {id: 114, name: "curry", score: 189},
+                    ]
+
+                }
+            }
+
+
+            itemClick(index) {
+                // 点击li后会返回当前item的index,并修改curIndex
+                this.setState({
+                    curIndex: index
+                })
+            }
+
+            render() {
+                const { students } = this.state
+                const filterStudents = students.filter(item => {
+                    return item.score > 100
+                })
+                const  sliceStudents = filterStudents.slice(0, 1)
+
+                return (
+                    <div>
+                        <h2>学生列表数据</h2>
+                        <div className="list">
+                            {
+                                students.map(item => {
+                                    return (
+                                        <div className="item" key={item.id}>
+                                            <h2>学号：{item.id}</h2>
+                                            <h2>学号：{item.name}</h2>
+                                            <h2>学号：{item.score}</h2>
+                                        </div>
+                                    )
+                                })
+                            }
+                            <h2>-----------------------</h2>
+                            {
+                                filterStudents.map(item => {
+                                    return (
+                                        <div className="item" key={item.id}>
+                                            <h2>学号：{item.id}</h2>
+                                            <h2>学号：{item.name}</h2>
+                                            <h2>学号：{item.score}</h2>
+                                        </div>
+                                    )
+                                })
+                            }
+                            <h2>-----------------------</h2>
+                            {
+                                sliceStudents.map(item => {
+                                    return (
+                                        <div className="item" key={item.id}>
+                                            <h2>学号：{item.id}</h2>
+                                            <h2>学号：{item.name}</h2>
+                                            <h2>学号：{item.score}</h2>
+                                        </div>
+                                    )
+                                })
+                            }
+
+                        </div>
+                    </div>
+                )
+            }
+        }
+        const root = ReactDOM.createRoot(document.querySelector("#app"))
+        root.render(<App />)
+    </script>
+</body>
+
+</html>

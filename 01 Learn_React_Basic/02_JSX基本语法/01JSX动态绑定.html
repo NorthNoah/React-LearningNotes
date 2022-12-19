@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello React</title>
+</head>
+<body>
+    <div id="app">
+    </div>
+
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-dom.js"></script>
+    <script src="../lib/babel.js"></script>
+    
+
+    <script type="text/babel">
+        
+        class App extends React.Component {
+            constructor() {
+                super()
+                this.state = {
+                    // 参与数据流state
+                    isActive: true
+                }
+                //在构造函数中提前对方法进行绑定
+            }
+            render() {
+                const { isActive } = this.state
+                //
+                const className = `abc cba ${isActive ? 'active' : ''}`
+                const classList = ["abc", "cba"]
+                if (isActive) classList.push("active")
+
+                // 注意编写类的时候，调用方法要加this
+                return (
+                    <div>
+                        {/* 1.绑定class属性 */}
+                        <h2 className={className}>哈哈哈</h2>
+                        <h2 className={classList.join(' ')}>哈哈哈</h2>
+
+                        {/* 2.绑定style属性，注意{}内必须传入对象 */}
+                        <h2 style={{color: "red", fontSize: "30px"}}>嗨嗨嗨</h2>
+
+                    </div>
+                )
+            }
+        }
+        const root = ReactDOM.createRoot(document.querySelector("#app"))
+        root.render(<App/>)
+    </script>
+</body>
+</html>
