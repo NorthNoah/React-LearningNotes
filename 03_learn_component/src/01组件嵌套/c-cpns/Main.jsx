@@ -32,7 +32,7 @@ export class Main extends Component {
         const { banners, productList } = this.state
         return (
             <div>
-                <MainBanner banners={banners}/>
+                <MainBanner banners={banners} title={123}/>
                 <MainProductList productList={productList}/>
             </div>
 

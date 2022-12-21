@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 export class MainBanner extends Component {
   constructor(props) {
@@ -6,7 +7,7 @@ export class MainBanner extends Component {
     this.state = {
     }
   }
-
+  
   render() {
     const { title, banners } = this.props
     return (
@@ -22,6 +23,15 @@ export class MainBanner extends Component {
       </div>
     )
   }
+  
+}
+MainBanner.propTypes = {
+  banners: PropTypes.array.isRequired,
+  title: PropTypes.string
 }
 
+MainBanner.defaultProps = {
+  banners: [],
+  title: "默认标题"
+}
 export default MainBanner

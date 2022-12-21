@@ -11,7 +11,7 @@ export class MainProductList extends Component {
     const { productList } = this.props
     return (
       <div>
-        <ul>
+        <ul> 
           {
             productList.map(item => {
               return <li key={item.acm}>{item.title}</li>
