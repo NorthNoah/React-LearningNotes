@@ -2,7 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 // import App from './01组件嵌套/APP.jsx'
 // import App from './02组件通信/App'
-import App from './03组件插槽/App'
+// import App from './03组件插槽/App'
+// import App from './04非父子通信-展开运算符/App'
+// import App from './05Context/App'
+import App from './06EventBus/App'
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
