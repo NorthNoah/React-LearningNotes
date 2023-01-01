@@ -5,7 +5,12 @@ import ReactDOM from 'react-dom/client';
 // import App from './03组件插槽/App'
 // import App from './04非父子通信-展开运算符/App'
 // import App from './05Context/App'
-import App from './06EventBus/App'
+// import App from './06EventBus/App'
+// import App from './07ref获取DOM/App.jsx'
+// import App from './08受控组件和非受控组件/01受控组件基本使用'
+import App from './08受控组件和非受控组件/App.jsx'
+
+
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
