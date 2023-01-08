@@ -8,7 +8,8 @@ import ReactDOM from 'react-dom/client';
 // import App from './06EventBus/App'
 // import App from './07ref获取DOM/App.jsx'
 // import App from './08受控组件和非受控组件/01受控组件基本使用'
-import App from './08受控组件和非受控组件/App.jsx'
+import App from './09React高阶组件/App.jsx'
+
 
 
 import reportWebVitals from './reportWebVitals';
