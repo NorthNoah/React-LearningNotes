@@ -8,7 +8,11 @@ import ReactDOM from 'react-dom/client';
 // import App from './06EventBus/App'
 // import App from './07ref获取DOM/App.jsx'
 // import App from './08受控组件和非受控组件/01受控组件基本使用'
-import App from './09React高阶组件/App.jsx'
+// import App from './09React高阶组件/App.jsx'
+// import App from './10Transition过渡动画/01_CSSTransition/App.jsx'
+
+// import App from './10Transition过渡动画/02_SwitchTransition/App.jsx'
+import App from './10Transition过渡动画/03_TransitionGroup/App.jsx'
 
 
 
@@ -16,9 +20,9 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <App/>
-  </React.StrictMode>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

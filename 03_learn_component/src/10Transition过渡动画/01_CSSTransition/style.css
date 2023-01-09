@@ -1,0 +1,38 @@
+/* 进入动画 */
+.noah-appear, .noah-enter {
+    opacity: 0;
+}
+/* .noah-enter-done {
+    opacity: 1;
+} */
+.noah-appear-active, .noah-enter-active {
+    opacity: 1;
+    transition: opacity 2s ease;
+}
+
+
+
+/* 离开动画 */
+.noah-exit {
+    opacity: 1;
+}
+
+.noah-exit-active {
+    opacity: 0;
+    transition: opacity 2s ease;
+}
+
+/* .noah-exit-done {
+    opacity: 0;
+} */
+
+
+/* 首次动画 */
+/* .noah-appear {
+    transform: translateX(-150px);
+}
+
+.noah-appear-active {
+    transform: translateX(0);;
+    transition: transform 2s ease;
+} */
