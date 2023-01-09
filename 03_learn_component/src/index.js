@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { ThemeProvider } from "styled-components";
 // import App from './01组件嵌套/APP.jsx'
 // import App from './02组件通信/App'
 // import App from './03组件插槽/App'
@@ -12,8 +13,13 @@ import ReactDOM from 'react-dom/client';
 // import App from './10Transition过渡动画/01_CSSTransition/App.jsx'
 
 // import App from './10Transition过渡动画/02_SwitchTransition/App.jsx'
-import App from './10Transition过渡动画/03_TransitionGroup/App.jsx'
-
+// import App from './10Transition过渡动画/03_TransitionGroup/App.jsx'
+// import App from './11CSS/01内联/App.jsx'
+// import App from './11CSS/02普通CSS/App'
+// import App from './11CSS/03CSS Modules/App'
+// import App from './11CSS/04Less/App.jsx'
+// import App from './11CSS/05CSS_in_JS/App.jsx'
+import App from './11CSS/05CSS_in_JS/App.jsx'
 
 
 import reportWebVitals from './reportWebVitals';
@@ -21,7 +27,9 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
+  <ThemeProvider theme={{ color: "purple", size: "50px"}}>
     <App/>
+  </ThemeProvider>
   // </React.StrictMode>
 );
 
