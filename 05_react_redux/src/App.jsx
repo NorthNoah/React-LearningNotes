@@ -19,13 +19,13 @@ export class App extends PureComponent {
   componentDidMount() {
     // 组件挂载后，订阅store中数据的变化，并更新
     store.subscribe(() => {
-      const state = store.getState()
+      const state = store.getState().counter
       this.setState({ counter: state.counter })
     })
   }
 
   render() {
-    const { counter } = this.state
+    const { counter } = this.state.counter
     return (
       <div>
         <h2>App Counter: {counter}</h2>

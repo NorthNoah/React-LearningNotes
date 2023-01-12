@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from "react-redux";
-import { addNumberAction, subNumberAction } from '../store/actionCreator';
+import { addNumberAction, subNumberAction } from '../store/counter';
 
 export class About extends PureComponent {
 
@@ -61,9 +61,9 @@ export class About extends PureComponent {
 // }
 
 const mapStateToProps = state => ({
-    counter: state.counter,
-    banners: state.banners,
-    recommends: state.recommends
+    counter: state.counter.counter,
+    banners: state.home.banners,
+    recommends: state.home.recommends
 })
 
 // 之前写法：需要store.dispatch，现在则只需要把dispatch逻辑封装为方法传入props即可
