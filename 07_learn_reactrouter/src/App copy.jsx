@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate, useRoutes } from "react-router-dom";
 import { Link } from "react-router-dom";
 // import { NavLink } from "react-router-dom";
 import Home from "./pages/Home";
@@ -11,9 +11,7 @@ import HomeRecommend from './pages/HomeRecommend';
 import HomeRanking from './pages/HomeRanking';
 import Category from './pages/Category';
 import Order from './pages/Order';
-
-
-
+import routes from './router';
 
 export class App extends PureComponent {
   navigateTo(path) {
@@ -48,7 +46,6 @@ export class App extends PureComponent {
             <Route path='/order' element={<Order/>}></Route>
             <Route path='*' element={<NotFound/>}></Route>
           </Routes>
-
         </div>
         <div className="footer">Footer</div>
       </div>
