@@ -1,17 +1,21 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
-import App from "./04_useRef/App"
-import { UserContext, ThemeContext } from "./03_useContext/context"
+import App from "./06_redux中的hooks/App"
+import { TokenContext, UserContext } from "./05_自定义hooks/context"
+import { Provider } from "react-redux";
+import store from "./06_redux中的hooks/store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
-	<ThemeContext.Provider value={{color: "blue", font: 14}}>
-    <UserContext.Provider value={{name: "why", level: 99}}>
+	<UserContext.Provider value={{color: "blue", font: 14}}>
+    <TokenContext.Provider value={'coderwhy'}>
       <React.StrictMode>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </React.StrictMode>
-    </UserContext.Provider>
-	</ThemeContext.Provider>
+    </TokenContext.Provider>
+	</UserContext.Provider>
 )
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
